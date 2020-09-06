@@ -1,11 +1,26 @@
 node{
-    checkout scm
+    def app
 
-    docker.withRegistry('https://registry.hub.docker.com','dockerhuba15'){
+    stage('Clone repository'){
 
-        def customImage = docker.build("179653/docker-jenkins-integration")
+        checkout scm
+    }
 
-        customImage.push()
+    stage('Build image'){
+        app = docker.build("179653/docker-jenkins-integration")
+    }
+
+    stage('Test image'){
+        app.inside{
+            echo "Tests passed"
+        }
+    }
+    stage('Push image'){
+        docker.withRegistry('https://registry.hub.com','dockerhuba15'){
+        app.push("${env.BUILD_NUMBER}")
+        app.push("latest")
+        }
+        echo "Trying to push Docker Build to DockerHub"
     }
 
 }

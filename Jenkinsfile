@@ -54,6 +54,14 @@ pipeline {
                              bat 'docker build -t 179653/docker-jenkins-integration .'
                          }
                      }
+        stage('Docker Push'){
+                    agent any
+                    steps{
+                        withDockerRegistry([ credentialsId: "dockerhub", url: ""]){
+                            bat 'docker push 179653/docker-jenkins-integration'
+                        }
+                    }
+                }
      }
 
 }

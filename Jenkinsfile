@@ -51,14 +51,14 @@ pipeline {
         stage('Docker Build'){
                          agent any
                          steps{
-                             bat 'docker build -t 179653/docker-jenkins-integration .'
+                             bat 'docker build -t 179653/my-work/docker-jenkins-integration .'
                          }
                      }
         stage('Docker Push'){
                     agent any
                     steps{
                         withDockerRegistry([ credentialsId: "dockerhub", url: ""]){
-                            bat 'docker push 179653/docker-jenkins-integration'
+                            bat 'docker push 179653/my-work/docker-jenkins-integration'
                         }
                     }
                 }

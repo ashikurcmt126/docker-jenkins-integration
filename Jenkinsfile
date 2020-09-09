@@ -40,12 +40,14 @@ pipeline {
 
 pipeline {
      agent any
-     stage('Maven Install'){
-                 agent any
-                 steps{
-                     sh 'mvn -f pom.xml clean install'
-                 }
-             }
+     stages{
+        stage('Maven Install'){
+                      agent any
+                      steps{
+                          sh 'mvn -f pom.xml clean install'
+                      }
+                  }
+     }
 }
 
 

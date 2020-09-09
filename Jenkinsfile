@@ -38,22 +38,12 @@ pipeline {
 }
 */
 
-pipeline {
-    agent none
-   stages {
-    stage('Maven Install') {
-      agent {
-       docker {
-         image 'apache-maven-3.6.3'
-     }
-  }
-  steps {
-       sh 'mvn clean install'
-       }
-     }
-   }
- }
-
+stage('Docker Build') {
+      agent any
+      steps {
+        sh 'docker build -t 179653/docker-jenkins-integration .'
+      }
+    }
 
 
 

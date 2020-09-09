@@ -30,7 +30,7 @@ pipeline {
      stages {
           stage("Compile") {
                steps {
-                    sh "./mvnw compileJava"
+                    sh "./mvnw compile"
                }
           }
 

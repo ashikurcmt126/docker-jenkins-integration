@@ -44,7 +44,7 @@ pipeline {
         stage('Maven Install'){
                       agent any
                       steps{
-                          sh 'mvn -f pom.xml clean install'
+                          bat 'mvn -f pom.xml clean install'
                       }
                   }
      }

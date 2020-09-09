@@ -1,4 +1,4 @@
-
+/*
 pipleline{
     agent none
     stages{
@@ -24,7 +24,18 @@ pipleline{
         }
     }
 }
+*/
+pipeline {
+     agent any
+     stages {
+          stage("Compile") {
+               steps {
+                    sh "./mvnw compileJava"
+               }
+          }
 
+     }
+}
 
 
 

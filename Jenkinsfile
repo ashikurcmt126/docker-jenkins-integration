@@ -40,14 +40,12 @@ pipeline {
 
 pipeline {
      agent any
-     stages{
-     stage('Docker Build') {
-                agent any
-                steps {
-                  sh 'docker build -t 179653/docker-jenkins-integration .'
-                }
-              }
-     }
+     stage('Maven Install'){
+                 agent any
+                 steps{
+                     sh 'mvn -f pom.xml clean install'
+                 }
+             }
 }
 
 

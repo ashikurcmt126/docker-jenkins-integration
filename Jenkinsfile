@@ -47,7 +47,15 @@ pipeline {
                           bat 'mvn -f pom.xml clean install'
                       }
                   }
+
+        stage('Docker Build'){
+                         agent any
+                         steps{
+                             bat 'docker build -t 179653/docker-jenkins-integration .'
+                         }
+                     }
      }
+
 }
 
 

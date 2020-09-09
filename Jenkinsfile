@@ -66,7 +66,7 @@ pipeline {
                         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub',
                                 usernameVariable: '179653', passwordVariable: '7+y$iEu,wN+ahtd']]) {
                               bat 'docker login -u "$USERNAME" -p "$PASSWORD"'
-                              cont.push()
+                              bat 'docker push 179653/my-work/docker-jenkins-integration'
                             }
                     }
                 }

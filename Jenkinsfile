@@ -57,10 +57,17 @@ pipeline {
         stage('Docker Push'){
                     agent any
                     steps{
+                    /*
                         withDockerRegistry([ credentialsId: "dockerhub",url: ""]){
                             bat 'docker login -u "179653" -p "7+y$iEu,wN+ahtd"'
                             bat 'docker push 179653/my-work/docker-jenkins-integration'
                         }
+                        */
+                        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub',
+                                usernameVariable: '179653', passwordVariable: '7+y$iEu,wN+ahtd']]) {
+                              bat 'docker login -u "$USERNAME" -p "$PASSWORD"'
+                              cont.push()
+                            }
                     }
                 }
      }

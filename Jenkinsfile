@@ -38,14 +38,15 @@ pipeline {
 }
 */
 
-stage('Docker Build') {
-      agent any
-      steps {
-        sh 'docker build -t 179653/docker-jenkins-integration .'
-      }
-    }
-
-
+pipeline {
+     agent any
+     stage('Docker Build') {
+           agent any
+           steps {
+             sh 'docker build -t 179653/docker-jenkins-integration .'
+           }
+         }
+}
 
 
 

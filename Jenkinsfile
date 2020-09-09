@@ -40,12 +40,14 @@ pipeline {
 
 pipeline {
      agent any
+     stages{
      stage('Docker Build') {
-           agent any
-           steps {
-             sh 'docker build -t 179653/docker-jenkins-integration .'
-           }
-         }
+                agent any
+                steps {
+                  sh 'docker build -t 179653/docker-jenkins-integration .'
+                }
+              }
+     }
 }
 
 

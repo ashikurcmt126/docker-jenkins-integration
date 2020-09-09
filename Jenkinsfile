@@ -37,7 +37,7 @@ pipeline {
      }
 }
 */
-#!groovy
+
 pipeline {
     agent none
    stages {

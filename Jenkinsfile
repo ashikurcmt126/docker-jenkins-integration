@@ -58,7 +58,7 @@ pipeline {
                     agent any
                     steps{
 
-                        withDockerRegistry([ credentialsId: "dockerhub",url: "https://registry.hub.docker.com/"]){
+                        withDockerRegistry([ credentialsId: "dockerhub15",url: "https://registry.hub.docker.com/"]){
                             bat 'docker login -u "179653" -p "7+y$iEu,wN+ahtd"'
                             bat 'docker push 179653/my-work/docker-jenkins-integration'
                         }

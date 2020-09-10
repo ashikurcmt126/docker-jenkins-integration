@@ -76,8 +76,9 @@ pipeline {
                     }
                 }*/
 
-                                       withDockerRegistry([ credentialsId: "dockerhub15", url: "https://index.docker.io/v1/" ]) {
-                                       bat "docker push 179653/my-work/docker-jenkins-integration"
+                                       withDockerRegistry([ credentialsId: "dockerhub15", url: "" ]) {
+                                       bat "docker tag 179653/my-work/docker-jenkins-integration 179653/my-work/docker-jenkins-integration 179653/my-work:docker-jenkins-integration"
+                                       bat "docker push 179653/my-work:docker-jenkins-integration"
                                      }
 
                 }

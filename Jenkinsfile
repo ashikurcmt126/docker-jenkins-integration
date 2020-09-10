@@ -83,7 +83,7 @@ pipeline {
                 }
                 */
                 stage('Push image') {
-                    agent any{
+                    agent any
                         steps{
                            withCredentials([usernamePassword( credentialsId: 'dockerhub15', usernameVariable: '179653', passwordVariable: '7+y$iEu,wN+ahtd')]) {
                                                    def registry_url = "registry.hub.docker.com/"
@@ -93,7 +93,7 @@ pipeline {
                                                        bat "docker push 179653/my-work/docker-jenkins-integration"
                                                    }
                                                }
-                        }
+
                       }
 
                 }

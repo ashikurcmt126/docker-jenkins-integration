@@ -54,7 +54,7 @@ pipeline {
                              bat 'docker build -t 179653/my-work/docker-jenkins-integration .'
                          }
                      }
-        /*
+
         stage('Push image'){
                     agent any
                     steps{
@@ -74,27 +74,14 @@ pipeline {
                             *//*
 
                     }
-                }*//*
+                }*/
 
                                        withDockerRegistry([ credentialsId: "dockerhub15", url: "" ]) {
                                        bat "docker push 179653/my-work/docker-jenkins-integration"
                                      }
-                                     }
-                }
-                */
-                stage('Push image') {
-                    agent any
-                        steps{
-                           withCredentials([usernamePassword( credentialsId: 'dockerhub15', usernameVariable: '179653', passwordVariable: '7+y$iEu,wN+ahtd')]) {
-                                                   def registry_url = "https://registry.hub.docker.com/"
-                                                   bat "docker login -u $USER -p $PASSWORD ${registry_url}"
-                                                   docker.withRegistry("http://${registry_url}", "dockerhub15") {
-                                                       // Push your image now
-                                                       bat "docker push 179653/my-work/docker-jenkins-integration"
-                                                   }
-                                               }
 
-                      }
+                }
+
 
                 }
      }

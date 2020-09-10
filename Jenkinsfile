@@ -76,7 +76,7 @@ pipeline {
                     }
                 }*/
 
-                                       withDockerRegistry([ credentialsId: "dockerhub15", url: "https://registry.hub.docker.com/" ]) {
+                                       withDockerRegistry([ credentialsId: "dockerhub15", url: "https://hub.docker.com/" ]) {
                                        bat "docker push 179653/my-work/docker-jenkins-integration"
                                      }
 
